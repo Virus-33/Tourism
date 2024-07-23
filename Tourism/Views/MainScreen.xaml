@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="Tourism.Views.MainScreen"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Tourism.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Viewbox Stretch="Fill">
+        <Grid Height="450" Width="800">
+            <TextBlock Text="{Binding UserInfo}" Height="NaN" Margin="208,0,208,429" Width="NaN"/>
+            <TextBlock Text="Выберите место отдыха ниже:" Height="NaN" Margin="284,26,284,403" Width="NaN"/>
+            <DataGrid ItemsSource="{Binding Places}" SelectedItem="{Binding SelectedPlace}" Height="NaN" Margin="182,47,182,179" Width="NaN" IsReadOnly="True" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Name}" Header="       Место      "/>
+                    <DataGridTextColumn Binding="{Binding MaxPeople}" Header="Макс. Человек"/>
+                    <DataGridTextColumn Binding="{Binding PricePerPerson}" Header="Цена за чел."/>
+                    <DataGridTextColumn Binding="{Binding TimeOfRest}" Header="Время отдыха"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <TextBlock Text="Выберите тип прайсинга:" Height="NaN" Margin="627,353,35,76" Width="NaN"/>
+            <ComboBox ItemsSource="{Binding Pricings}" SelectedItem="{Binding SelectedPricing}" DisplayMemberPath="Name" Height="NaN" Margin="627,382,35,48" Width="NaN"/>
+            <Button Content="Забронировать место отдыха" Command="{Binding Continue}" Height="NaN" Margin="214,379,214,45" Width="NaN"/>
+            <TextBlock Text="Постоянным клиентам доступны скидки" Height="NaN" Margin="496,410,76,19" Width="NaN"/>
+        </Grid>
+    </Viewbox>
+</UserControl>
